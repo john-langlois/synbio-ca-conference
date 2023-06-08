@@ -1,0 +1,21 @@
+{
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "lang": "en",
+  "name": "Synbio Conference Lead Tracker",
+  "short_name": "Synbio Conference Lead Tracker",
+  "start_url": "/?utm_source=web_app_manifest",
+  "orientation": "portrait",
+  "related_applications": [
+    {
+      "platform": "itunes",
+      "id": "com.synbioconferenceleadtracker"
+    },
+    {
+      "platform": "play",
+      "url": "http://play.google.com/store/apps/details?id=com.synbioconferenceleadtracker",
+      "id": "com.synbioconferenceleadtracker"
+    }
+  ],
+  "prefer_related_applications": true
+}

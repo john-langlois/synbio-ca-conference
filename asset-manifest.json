@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.js": "/synbio-ca-conference/static/js/main.9b202a16.js",
+    "static/js/345.906af662.js": "/synbio-ca-conference/static/js/345.906af662.js",
+    "static/media/MaterialCommunityIcons.ttf": "/synbio-ca-conference/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
+    "static/media/Fontisto.ttf": "/synbio-ca-conference/static/media/Fontisto.c0edd68811e0237502fe.ttf",
+    "static/media/Ionicons.ttf": "/synbio-ca-conference/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
+    "static/media/MaterialIcons.ttf": "/synbio-ca-conference/static/media/MaterialIcons.120b4c7bbd155bd0a04d.ttf",
+    "static/media/FontAwesome5_Solid.ttf": "/synbio-ca-conference/static/media/FontAwesome5_Solid.07c3313b24f7b1ca85ee.ttf",
+    "static/media/FontAwesome.ttf": "/synbio-ca-conference/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
+    "static/media/FontAwesome5_Brands.ttf": "/synbio-ca-conference/static/media/FontAwesome5_Brands.9e138496e8f1719c6ebf.ttf",
+    "static/media/checkmark.png": "/synbio-ca-conference/static/media/checkmark.53203d559f6c19915ea8.png",
+    "static/media/SynbioLogo.jpeg": "/synbio-ca-conference/static/media/SynbioLogo.967a3b8137912f8db7f9.jpeg",
+    "static/media/AntDesign.ttf": "/synbio-ca-conference/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
+    "static/media/Entypo.ttf": "/synbio-ca-conference/static/media/Entypo.fc6169344c041cffcdae.ttf",
+    "static/media/Foundation.ttf": "/synbio-ca-conference/static/media/Foundation.c0cbb004854f9c746f89.ttf",
+    "static/media/Feather.ttf": "/synbio-ca-conference/static/media/Feather.0f5d9cede2e831f3fc80.ttf",
+    "static/media/SimpleLineIcons.ttf": "/synbio-ca-conference/static/media/SimpleLineIcons.3ec13a24af3fdda11107.ttf",
+    "static/media/Octicons.ttf": "/synbio-ca-conference/static/media/Octicons.6b742a230954dc640ba2.ttf",
+    "static/media/FontAwesome5_Regular.ttf": "/synbio-ca-conference/static/media/FontAwesome5_Regular.1017bce89c72f95bcf8e.ttf",
+    "static/media/Zocial.ttf": "/synbio-ca-conference/static/media/Zocial.07fea2ac49bcc67d9a6b.ttf",
+    "favicon.ico": "/synbio-ca-conference/favicon.ico",
+    "static/media/EvilIcons.ttf": "/synbio-ca-conference/static/media/EvilIcons.699664b33ac2837d5bee.ttf",
+    "index.html": "/synbio-ca-conference/index.html",
+    "static/media/rocket.png": "/synbio-ca-conference/static/media/rocket.d2f3bf41d5e4515c39a9.png",
+    "static/media/bell.png": "/synbio-ca-conference/static/media/bell.cf04af27d6a651c4b904.png",
+    "favicon-32.png": "/synbio-ca-conference/favicon-32.png",
+    "static/media/star.png": "/synbio-ca-conference/static/media/star.69c7138684828d68fe5a.png",
+    "static/media/heart.png": "/synbio-ca-conference/static/media/heart.23b5c2c0eb77d50ff1b4.png",
+    "favicon-16.png": "/synbio-ca-conference/favicon-16.png",
+    "manifest.json": "/synbio-ca-conference/manifest.json",
+    "serve.json": "/synbio-ca-conference/serve.json",
+    "main.9b202a16.js.map": "/synbio-ca-conference/static/js/main.9b202a16.js.map",
+    "345.906af662.js.map": "/synbio-ca-conference/static/js/345.906af662.js.map"
+  },
+  "entrypoints": [
+    "static/js/345.906af662.js",
+    "static/js/main.9b202a16.js"
+  ]
+}
