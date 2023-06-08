@@ -2,9 +2,9 @@ import 'dotenv/config';
 
 export default{
   "expo": {
-    "name": "firebase-login",
+    "name": "Synbio Conference Lead Tracker",
     "slug": "firebase-login",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -17,7 +17,9 @@ export default{
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.synbioconferenceleadtracker",
+      "buildNumber": "1.0.2"
     },
     "android": {
       "package": "com.synbioconferenceleadtracker",

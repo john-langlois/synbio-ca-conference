@@ -4,14 +4,11 @@ import { Button } from 'react-native-elements';
 import FooterList from '../components/Footer/FooterList';
 import { signOut, getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import React, { useState, useEffect } from 'react';
-import * as FileSystem from 'expo-file-system';
-import * as Sharing from 'expo-sharing';
 import { useFocusEffect } from '@react-navigation/native';
 
 const auth = getAuth();
 
 const Settings = () => {
-    
   const API = "https://synbio-conference-2023.ue.r.appspot.com/lead";
   const [data, setData] = useState([]);
   const [resetPasswordMessage, setResetPasswordMessage] = useState('');
@@ -26,51 +23,29 @@ const Settings = () => {
   useFocusEffect(
     React.useCallback(() => {
       if (user?.email) {
-         getUsers(); // Call the API function here
+        getUsers(); // Call the API function here
       }
     }, [user?.email])
   );
 
   const convertToCSV = (jsonArray) => {
     const keys = Object.keys(jsonArray[0]);
-
     const csv = jsonArray.map((row) => keys.map((key) => row[key]).join(','));
-
     return [keys.join(','), ...csv].join('\n');
   };
 
-  const saveCSVToFile = async (csvData) => {
-    const fileUri = FileSystem.documentDirectory + 'data.csv';
-
-    try {
-      await FileSystem.writeAsStringAsync(fileUri, csvData);
-      return fileUri;
-    } catch (error) {
-      console.error('Error saving CSV file:', error);
-      return null;
-    }
-  };
-
-  const shareFile = async (fileUri) => {
-    try {
-      await Sharing.shareAsync(fileUri, {
-        mimeType: 'text/csv',
-        dialogTitle: 'Share CSV file',
-        UTI: 'public.comma-separated-values-text',
-      });
-    } catch (error) {
-      console.error('Error sharing CSV file:', error);
-    }
-  };
-
-  const handleExportToCSV = async () => {
+  const handleExportToCSV = () => {
     try {
       if (data.length > 0) {
         const csvData = convertToCSV(data);
-        const fileUri = await saveCSVToFile(csvData);
-        if (fileUri) {
-          await shareFile(fileUri);
-        }
+
+        const blob = new Blob([csvData], { type: 'text/csv' });
+        const csvURL = URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.href = csvURL;
+        link.download = 'data.csv';
+        link.click();
       }
     } catch (error) {
       console.error('Error exporting to CSV:', error);
@@ -81,7 +56,7 @@ const Settings = () => {
     sendPasswordResetEmail(auth, user.email)
       .then(() => {
         // Password reset email sent successfully
-        setResetPasswordMessage('Password reset email sent, please check junk folder');
+        setResetPasswordMessage('Password reset email sent, please check your junk folder');
       })
       .catch((error) => {
         // An error occurred while sending the password reset email
@@ -93,8 +68,7 @@ const Settings = () => {
 
   return (
     <View style={styles.container}>
-        <Text style={styles.emailText}>Welcome {user?.displayName}</Text>
-      <Text style={styles.emailText}>{user?.email}</Text>
+      <Text style={styles.emailText}>Welcome {user?.email}</Text>
       <Button
         title="Reset Password"
         buttonStyle={styles.button}
@@ -103,7 +77,7 @@ const Settings = () => {
       {resetPasswordMessage !== '' && (
         <Text style={styles.resetPasswordMessage}>{resetPasswordMessage}</Text>
       )}
-      
+
       <Button
         title="Export to CSV"
         buttonStyle={styles.button}

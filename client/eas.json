@@ -13,6 +13,12 @@
     "production": {}
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios":{
+        "appleId":"joaolanglois10@gmail.com",
+        "ascAppId":"6450019303",
+        "appleTeamId": "RVH5Z65586"
+      }
+    }
   }
 }

@@ -96,7 +96,7 @@ const HomeScreen:React.FC<StackScreenProps<any>>  = ({navigation}) => {
           ListFooterComponent={loading && <ActivityIndicator size="small" color="#000000" />}
         />
       </View>
-      <FooterListMemo/>
+      <FooterListMemo style = {styles.footer}/>
     </View>
   );
 }
@@ -187,4 +187,7 @@ const styles = StyleSheet.create({
     borderColor: '#FFFFFF',
     transform: [{ rotate: '45deg' }],
   },
+  footer:{
+    position: 'absolute',
+  }
 });
