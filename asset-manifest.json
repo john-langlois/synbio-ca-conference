@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/synbio-ca-conference/static/js/main.b22f7346.js",
+    "main.js": "/synbio-ca-conference/static/js/main.0f9c21aa.js",
     "static/js/51.b0627e40.js": "/synbio-ca-conference/static/js/51.b0627e40.js",
     "static/media/MaterialCommunityIcons.ttf": "/synbio-ca-conference/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
     "static/media/Fontisto.ttf": "/synbio-ca-conference/static/media/Fontisto.c0edd68811e0237502fe.ttf",
@@ -30,11 +30,11 @@
     "favicon-16.png": "/synbio-ca-conference/favicon-16.png",
     "manifest.json": "/synbio-ca-conference/manifest.json",
     "serve.json": "/synbio-ca-conference/serve.json",
-    "main.b22f7346.js.map": "/synbio-ca-conference/static/js/main.b22f7346.js.map",
+    "main.0f9c21aa.js.map": "/synbio-ca-conference/static/js/main.0f9c21aa.js.map",
     "51.b0627e40.js.map": "/synbio-ca-conference/static/js/51.b0627e40.js.map"
   },
   "entrypoints": [
     "static/js/51.b0627e40.js",
-    "static/js/main.b22f7346.js"
+    "static/js/main.0f9c21aa.js"
   ]
 }
