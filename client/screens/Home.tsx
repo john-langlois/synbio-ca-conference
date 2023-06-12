@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput, ActivityIndicator, FlatList } from 'react-native';
 import { useAuthentication } from '../utils/hooks/useAuthentication';
 import FooterList from '../components/Footer/FooterList';
 import { getAuth } from 'firebase/auth';
@@ -12,7 +12,7 @@ const auth = getAuth();
 const HomeScreen:React.FC<StackScreenProps<any>>  = ({navigation}) => {
   const FooterListMemo = React.memo(FooterList);
   const API = "https://synbio-conference-2023.ue.r.appspot.com/lead"
-  const PAGE_SIZE = 10;
+  const PAGE_SIZE = 6;
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
@@ -85,9 +85,9 @@ const HomeScreen:React.FC<StackScreenProps<any>>  = ({navigation}) => {
           onChangeText={handleSearch}
         />
       </View>
-      <View style={styles.contentContainer}>
+      <ScrollView style={styles.contentContainer}>
         <FlatList
-          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
           data={filteredData.length > 0 ? filteredData : data}
           renderItem={renderItem}
           keyExtractor={(item) => item._id.toString()}
@@ -95,8 +95,8 @@ const HomeScreen:React.FC<StackScreenProps<any>>  = ({navigation}) => {
           onEndReachedThreshold={0.5}
           ListFooterComponent={loading && <ActivityIndicator size="small" color="#000000" />}
         />
-      </View>
-      <FooterListMemo style = {styles.footer}/>
+      </ScrollView>
+      <FooterListMemo style={styles.footer} />
     </View>
   );
 }
@@ -119,16 +119,15 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    marginHorizontal:15,
-    
+    marginHorizontal: 15,
     shadowRadius: 4,
     elevation: 2,
     marginBottom: 16,
     marginTop: 16,
   },
   contentContainer: {
-    flex: 1, // Added flex property
-    marginBottom: 80, // Increased margin to accommodate the footer
+    flexGrow: 1,
+    marginBottom: 100,
   },
   searchIcon: {
     marginLeft: 8,
@@ -167,7 +166,7 @@ const styles = StyleSheet.create({
   company: {
     fontSize: 14,
   },
-  role:{
+  role: {
     fontSize: 12,
     color: 'gray',
   },
@@ -187,7 +186,10 @@ const styles = StyleSheet.create({
     borderColor: '#FFFFFF',
     transform: [{ rotate: '45deg' }],
   },
-  footer:{
+  footer: {
     position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
   }
 });

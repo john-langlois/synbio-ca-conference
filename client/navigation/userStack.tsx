@@ -14,7 +14,7 @@ export default function UserStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home"  component={HomeScreen} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Manually Connect" component={ManuallyConnect} />
         <Stack.Screen name="Connect" component={Connect}/>

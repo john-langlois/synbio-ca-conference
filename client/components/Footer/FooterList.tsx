@@ -11,7 +11,7 @@ const FooterList = () => {
   return (
     <View style={styles.container}>
       <FooterItem text ="Home"  name="home" handlePress={()=> navigation.navigate("Home")} />
-      <FooterItem text ="Connect" name="adduser" handlePress={()=> navigation.navigate("Connect")}/>
+      <FooterItem text ="Connect" name="adduser" handlePress={()=> navigation.navigate("Manually Connect")}/>
       <FooterItem text ="Settings" name="setting" handlePress={()=> navigation.navigate("Settings")}r/>
     </View>
   )

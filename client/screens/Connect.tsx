@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Dimensions, Text, Image } from 'react-native';
 import { Button } from 'react-native-elements';
+import { BarCodeScanner } from 'expo-barcode-scanner';
 import { StackScreenProps } from '@react-navigation/stack';
 import FooterList from '../components/Footer/FooterList';
 import { useAuthentication } from '../utils/hooks/useAuthentication';
-import { BarCodeScanner } from 'expo-barcode-scanner';
-import { Camera } from 'expo-camera';
 
 type Props = StackScreenProps<any>;
 
@@ -16,7 +15,7 @@ const Connect: React.FC<Props> = ({ navigation }) => {
   const [scanned, setScanned] = useState<boolean>(false);
   const [data, setData] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const API = "https://synbio-conference-2023.ue.r.appspot.com/lead";
+  const API = "https://synbio-conference-2023.ue.r.appspot.com/lead"
 
   useEffect(() => {
     (async () => {
@@ -28,7 +27,7 @@ const Connect: React.FC<Props> = ({ navigation }) => {
   const handleBarCodeScanned = async ({ data }: { data: number }) => {
     setScanned(true);
     setData(data);
-
+    
     // Send the request to the API
     sendLeadData(data);
   };
@@ -38,27 +37,24 @@ const Connect: React.FC<Props> = ({ navigation }) => {
     if (data) {
       // Example fetch request
       await fetch(`${API}/get-lead-by-id/${data}`)
-        .then((res) => res.json())
-        .then(async (badgeUser) => {
-          const response = await fetch(`${API}/add-lead`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              name: badgeUser.firstName + ' ' + badgeUser.lastName,
-              company: badgeUser.company,
-              email: badgeUser.email,
-              role: badgeUser.jobTitle,
-              vendorEmail: user?.email,
-            }),
-          });
-          if (response.ok) {
-            navigation.navigate('Home');
-          } else {
-            setError('Error sending lead data. Please try again.');
-          }
-        });
+      .then(res => res.json())
+      .then(async badgeUser =>{
+            const response = await fetch(`${API}/add-lead`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: badgeUser.firstName + ' ' + badgeUser.lastName, company: badgeUser.company, email: badgeUser.email, role: badgeUser.jobTitle, vendorEmail: user?.email }),
+                  })
+                  if (response.ok) {
+                    navigation.navigate('Home');
+                  } else{
+                    setError("Error sending lead data. Please try again.");
+                  }
+                  
+      });
+      
 
       // Handle the response as needed
+      
     }
   };
 
@@ -67,16 +63,15 @@ const Connect: React.FC<Props> = ({ navigation }) => {
   }
 
   if (hasPermission === false) {
-    return (
-      <View style={styles.container}>
-        <Text>No access to camera</Text>
-      </View>
-    );
+    return <View style={styles.container}><Text>No access to camera</Text></View>;
   }
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/SynbioLogo.jpeg')} style={styles.image} />
+      <Image
+        source={require('../assets/SynbioLogo.jpeg')}
+        style={styles.image}
+      />
       <View style={styles.contentContainer}>
         <View style={styles.scannerContainer}>
           {!scanned && (
@@ -88,14 +83,15 @@ const Connect: React.FC<Props> = ({ navigation }) => {
           )}
           {scanned && (
             <View style={styles.checkmarkContainer}>
-              <Image source={require('../assets/checkmark.png')} style={styles.checkmarkImage} />
+              <Image
+                source={require('../assets/checkmark.png')}
+                style={styles.checkmarkImage}
+              />
             </View>
           )}
           <View style={styles.cameraBorder} />
         </View>
-        {error && (
-          <Text style={{ fontSize: 16, color: 'red', textAlign: 'center', marginBottom: '5%' }}>{error}</Text>
-        )}
+        {error && <Text style={{ fontSize: 16, color: 'red', textAlign: 'center', marginBottom:'5%' }}>{error}</Text>}
         <Text style={styles.orText}>OR</Text>
         <Button
           title="Enter Manually"
